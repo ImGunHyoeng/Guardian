@@ -1,0 +1,37 @@
+[
+	{
+		"Name": "NewRow",
+		"Description": "Player HP Up 30",
+		"StackSize": 10,
+		"Mesh": "/Script/Engine.StaticMesh'/Game/Potion/PotionA.PotionA'",
+		"Power": 10
+	},
+	{
+		"Name": "NewRow_0",
+		"Description": "Player HP Up 3",
+		"StackSize": 10,
+		"Mesh": "/Script/Engine.StaticMesh'/Game/InventoryFiles/3DObjectsAndTextures/Eatables/Apple/3DModel/SM_Apple.SM_Apple'",
+		"Power": 3
+	},
+	{
+		"Name": "NewRow_1",
+		"Description": "Player HP Up 8",
+		"StackSize": 5,
+		"Mesh": "/Script/Engine.StaticMesh'/Game/InventoryFiles/3DObjectsAndTextures/Eatables/Hydromelon/3DModel/SM_Melon.SM_Melon'",
+		"Power": 8
+	},
+	{
+		"Name": "NewRow_2",
+		"Description": "Player HP Up 4",
+		"StackSize": 4,
+		"Mesh": "/Script/Engine.StaticMesh'/Game/InventoryFiles/3DObjectsAndTextures/Eatables/Fortified_Pumpkin/3DModel/SM_Pumpkin.SM_Pumpkin'",
+		"Power": 4
+	},
+	{
+		"Name": "NewRow_3",
+		"Description": "Attack",
+		"StackSize": 1,
+		"Mesh": "/Script/Engine.StaticMesh'/Game/Mesh/Sketchfab_Sword_forsale.Sketchfab_Sword_forsale'",
+		"Power": 20
+	}
+]
