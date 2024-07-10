@@ -6,7 +6,8 @@
 
 ACaimanGameModeBase::ACaimanGameModeBase()
 {
-	static ConstructorHelpers::FClassFinder<APawn> DefaultPawnRef(TEXT("/Game/Blueprints/BP_CCharacter.BP_CCharacter_C"));
+	
+	static ConstructorHelpers::FClassFinder<APawn> DefaultPawnRef(TEXT("/Game/Blueprints(player_etc)/BP_CCharacter.BP_CCharacter_C"));
 	if (DefaultPawnRef.Class)
 	{
 		DefaultPawnClass = DefaultPawnRef.Class;//GameModeBase에 이미 정의 되어있기에 정의 안해도 사용 가능함
