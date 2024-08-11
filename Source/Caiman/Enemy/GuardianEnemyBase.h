@@ -4,11 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Hit\HitInterface.h"
 #include "GuardianEnemyBase.generated.h"
 
-
+class ACWeaponSTM;
 UCLASS()
-class CAIMAN_API AGuardianEnemyBase : public ACharacter
+class CAIMAN_API AGuardianEnemyBase : public ACharacter, public IHitInterface
 {
 	GENERATED_BODY()
 
@@ -24,11 +25,15 @@ public:
 	// Called every frame
 
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+	virtual void GetHit_Implementation(const FVector& ImpactPoint, AActor* Offense) override;
 
 	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(VisibleAnyWhere, Category = "Collision")
 	class UCapsuleComponent* Body;
+
+	UPROPERTY(VisibleAnyWhere, Category = "Collision")
+	USkeletalMeshComponent* Bone;
 
 	class ACCharacterPlayer* player;
 
@@ -43,11 +48,33 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Montage")
 	UAnimMontage* AM_DeadReact;
 
+	UPROPERTY(EditAnywhere, Category = VisualEffect)
+	UParticleSystem* ParringParticle;
+	UPROPERTY(EditAnywhere, Category = HittedSound)
+	class USoundBase* ThunderSound;
+
+	UPROPERTY(BlueprintReadWrite,VisibleAnyWhere)
+	bool isAttacked;
+	UPROPERTY(BlueprintReadWrite,VisibleAnyWhere)
+	bool isAttack;
+
+	UPROPERTY(EditAnywhere, Category = Weapon)
+	TSubclassOf<ACWeaponSTM> WeaponClass;
+
+	ACWeaponSTM* Weapon;
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnyWhere)
+	bool AttackRange;
 
 	void HitReact(const FVector& ImpactPoint);
 	void DeadReact(const FVector& ImpactPoint);
 
-	class UEnemyInstance* enemyaniminstance;
+	UPROPERTY(VisibleAnyWhere, Category = "Collision")
+	class USphereComponent* AttackStartRange;
+
+	UPROPERTY(VisibleAnyWhere, Category = "Collision")
+	class USphereComponent* AttackEndRange;
+
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
