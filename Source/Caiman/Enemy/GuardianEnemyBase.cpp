@@ -2,13 +2,37 @@
 
 
 #include "Enemy/GuardianEnemyBase.h"
+#include "Components/CapsuleComponent.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Components/SphereComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "CCharacterPlayer.h"
+#include "FSM/OBJECT_STATE/OFSMCollection.h"
 
 // Sets default values
 AGuardianEnemyBase::AGuardianEnemyBase()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	//RootComponent = CreateDefaultSubobject<USceneComponent>("Root");
 
+	//Body = CreateDefaultSubobject<UCapsuleComponent>("Body");
+	//Body->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Block);
+	//Body->SetupAttachment(GetRootComponent());
+
+	//Bone = CreateDefaultSubobject<USkeletalMeshComponent>("Mesh");
+	//Bone->SetupAttachment(Body);
+	
+	AttackStartRange = CreateDefaultSubobject<USphereComponent>("AttackStartRange");
+	AttackEndRange = CreateDefaultSubobject<USphereComponent>("AttackEndRange");
+
+	AttackStartRange->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	AttackStartRange->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
+
+	AttackEndRange->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	AttackEndRange->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
+	AttackStartRange->SetupAttachment(GetMesh());
+	AttackEndRange->SetupAttachment(GetMesh());
 }
 
 // Called when the game starts or when spawned
@@ -21,6 +45,22 @@ void AGuardianEnemyBase::BeginPlay()
 float AGuardianEnemyBase::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
 	return 0.0f;
+}
+
+void AGuardianEnemyBase::GetHit_Implementation(const FVector& ImpactPoint, AActor* Offense)
+{
+	//DrawDebugSphere(GetWorld(), ImpactPoint, 20, 32, FColor::Red, true);
+	ACCharacterPlayer* Player = Cast<ACCharacterPlayer>(Offense->GetOwner());
+	if (Player)
+	{
+		if (Cast<UINVINCIBILITY_O>(Player->GetCurPlayerState()))
+		{
+			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ParringParticle, ImpactPoint);
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), ThunderSound, ImpactPoint);
+			return;
+		}
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HittedParticle, ImpactPoint);
+	}
 }
 
 // Called every frame
