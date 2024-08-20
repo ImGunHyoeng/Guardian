@@ -8,6 +8,9 @@
 #include "Kismet/GameplayStatics.h"
 #include "CCharacterPlayer.h"
 #include "FSM/OBJECT_STATE/OFSMCollection.h"
+#include "Components/AttributeComponent.h"
+#include "Components/WidgetComponent.h"
+#include "Components/HealthBarComponent.h"
 
 // Sets default values
 AGuardianEnemyBase::AGuardianEnemyBase()
@@ -26,20 +29,31 @@ AGuardianEnemyBase::AGuardianEnemyBase()
 	AttackStartRange = CreateDefaultSubobject<USphereComponent>("AttackStartRange");
 	AttackEndRange = CreateDefaultSubobject<USphereComponent>("AttackEndRange");
 
+	DetectRange = CreateDefaultSubobject<USphereComponent>("DetectRange");
+
 	AttackStartRange->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 	AttackStartRange->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
 
 	AttackEndRange->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 	AttackEndRange->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
+
+	DetectRange->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	DetectRange->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
+
 	AttackStartRange->SetupAttachment(GetMesh());
 	AttackEndRange->SetupAttachment(GetMesh());
+	DetectRange->SetupAttachment(GetMesh());
+	Attributes = CreateDefaultSubobject<UAttributeComponent>(TEXT("Attribute"));
+	HealthBarWidget = CreateDefaultSubobject<UHealthBarComponent>(TEXT("HealthBar"));
+	HealthBarWidget->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
 void AGuardianEnemyBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	HealthBarWidget->SetHealthPercent(Attributes->GetHealthPercent());
+	HealthBarWidget->SetVisibility(false);
 }
 
 float AGuardianEnemyBase::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
@@ -53,7 +67,7 @@ void AGuardianEnemyBase::GetHit_Implementation(const FVector& ImpactPoint, AActo
 	ACCharacterPlayer* Player = Cast<ACCharacterPlayer>(Offense->GetOwner());
 	if (Player)
 	{
-		if (Cast<UINVINCIBILITY_O>(Player->GetCurPlayerState()))
+		if (Cast<UINVINCIBILITY_O>(Player->GetCurPlayerState()))//패링성공시에 공격을 나타냄.
 		{
 			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ParringParticle, ImpactPoint);
 			UGameplayStatics::PlaySoundAtLocation(GetWorld(), ThunderSound, ImpactPoint);
@@ -76,6 +90,14 @@ void AGuardianEnemyBase::HitReact(const FVector& ImpactPoint)
 
 void AGuardianEnemyBase::DeadReact(const FVector& ImpactPoint)
 {
+}
+
+void AGuardianEnemyBase::SetWidgetVisible(bool input)
+{
+	if (HealthBarWidget)
+	{
+		HealthBarWidget->SetVisibility(input);
+	}
 }
 
 // Called to bind functionality to input

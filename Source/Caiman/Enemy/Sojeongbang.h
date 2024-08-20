@@ -15,4 +15,6 @@ class CAIMAN_API ASojeongbang : public AGuardianEnemyBase
 	GENERATED_BODY()
 public:
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
+	virtual void HitReact(const FVector& ImpactPoint);
+	virtual void DeadReact(const FVector& ImpactPoint);
 };

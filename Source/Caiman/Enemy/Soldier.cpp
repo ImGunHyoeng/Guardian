@@ -29,3 +29,7 @@ void ASoldier::BeginPlay()
 	//}
 }
 
+void ASoldier::DeadReact(const FVector& ImpactPoint)
+{
+}
+

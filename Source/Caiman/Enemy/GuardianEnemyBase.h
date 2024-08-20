@@ -8,6 +8,8 @@
 #include "GuardianEnemyBase.generated.h"
 
 class ACWeaponSTM;
+class UAttributeComponent;
+class UHealthBarComponent;
 UCLASS()
 class CAIMAN_API AGuardianEnemyBase : public ACharacter, public IHitInterface
 {
@@ -66,8 +68,8 @@ public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnyWhere)
 	bool AttackRange;
 
-	void HitReact(const FVector& ImpactPoint);
-	void DeadReact(const FVector& ImpactPoint);
+	virtual void HitReact(const FVector& ImpactPoint);
+	virtual void DeadReact(const FVector& ImpactPoint);
 
 	UPROPERTY(VisibleAnyWhere, Category = "Collision")
 	class USphereComponent* AttackStartRange;
@@ -75,6 +77,16 @@ public:
 	UPROPERTY(VisibleAnyWhere, Category = "Collision")
 	class USphereComponent* AttackEndRange;
 
+	UPROPERTY(VisibleAnyWhere, Category = "Collision")
+	class USphereComponent* DetectRange;
+
+	UFUNCTION(BlueprintCallable)
+	void SetWidgetVisible(bool input);
+	///속성창
+	UPROPERTY(BlueprintReadOnly,VisibleAnywhere)
+	UAttributeComponent* Attributes;
+	UPROPERTY(VisibleAnywhere)
+	UHealthBarComponent* HealthBarWidget;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
