@@ -44,6 +44,8 @@ class CAIMAN_API ACCharacterPlayer : public ACCharacterBase,public IHitInterface
 {
 	GENERATED_BODY()
 public:	
+
+	void BossHpUpdate(float percent);
 	UPROPERTY(VisibleAnywhere, BluePrintReadOnly, Category = Camera)
 	TObjectPtr<class USpringArmComponent>CameraBoom;//스프링암
 

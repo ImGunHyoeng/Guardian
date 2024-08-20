@@ -18,6 +18,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetHealthBarPercent(float Percent);
 	void SetStaminaBarPercent(float Percent);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void SetImage(int Set);
 	UFUNCTION(BlueprintImplementableEvent)
 	void CheckClearCondition();
 private:
@@ -26,5 +29,9 @@ private:
 
 	UPROPERTY(BlueprintReadOnly,meta = (BindWidget, AllowPrivateAccess = true))
 	UProgressBar* StaminaBar;
+
+	UPROPERTY(BlueprintReadWrite, meta = (BindWidget, AllowPrivateAccess = true))
+	class UImage* BossHp;
+
 	
 };

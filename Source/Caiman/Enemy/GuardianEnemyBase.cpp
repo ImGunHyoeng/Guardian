@@ -11,6 +11,7 @@
 #include "Components/AttributeComponent.h"
 #include "Components/WidgetComponent.h"
 #include "Components/HealthBarComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 // Sets default values
 AGuardianEnemyBase::AGuardianEnemyBase()
@@ -22,7 +23,6 @@ AGuardianEnemyBase::AGuardianEnemyBase()
 	//Body = CreateDefaultSubobject<UCapsuleComponent>("Body");
 	//Body->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Block);
 	//Body->SetupAttachment(GetRootComponent());
-
 	//Bone = CreateDefaultSubobject<USkeletalMeshComponent>("Mesh");
 	//Bone->SetupAttachment(Body);
 	
@@ -98,6 +98,13 @@ void AGuardianEnemyBase::SetWidgetVisible(bool input)
 	{
 		HealthBarWidget->SetVisibility(input);
 	}
+}
+
+void AGuardianEnemyBase::Dead()
+{
+	GetCapsuleComponent()->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	GetMesh()->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	GetCharacterMovement()->Deactivate();
 }
 
 // Called to bind functionality to input

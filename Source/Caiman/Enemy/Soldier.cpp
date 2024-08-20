@@ -3,14 +3,29 @@
 
 #include "Enemy/Soldier.h"
 #include "Item/CWeaponSTM.h"
+#include "Components/AttributeComponent.h"
+#include "Components/WidgetComponent.h"
+#include "Components/HealthBarComponent.h"
 
 float ASoldier::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
+	//Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 	isAttacked = true;
-	/*if (GetMesh()->GetAnimInstance()->Montage_IsPlaying(AM_HitReact))
-		StopAnimMontage();*/
+	Attributes->ReceiveDamage(DamageAmount);
+	HealthBarWidget->SetHealthPercent(Attributes->GetHealthPercent());
+	if (!Attributes->IsAlive())
+	{
+		PlayAnimMontage(AM_DeadReact);
+		HealthBarWidget->SetVisibility(false);
+		Dead();
+		SetLifeSpan(5.0f);
+		return DamageAmount;
+	}
+	if (GetMesh()->GetAnimInstance()->Montage_IsPlaying(AM_HitReact))
+		StopAnimMontage();
 	PlayAnimMontage(AM_HitReact);
-	return 0.0f;
+
+	return DamageAmount;
 }
 
 void ASoldier::BeginPlay()

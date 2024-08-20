@@ -45,10 +45,12 @@ public:
 	FVector  spawnpoint;
 	FVector  targetLocation;
 
-	UPROPERTY(EditAnyWhere, Category = "Montage")
+	UPROPERTY(BlueprintReadOnly,EditAnyWhere, Category = "Montage")
 	UAnimMontage* AM_HitReact;
-	UPROPERTY(EditAnywhere, Category = "Montage")
+	UPROPERTY(BlueprintReadOnly,EditAnywhere, Category = "Montage")
 	UAnimMontage* AM_DeadReact;
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Montage")
+	UAnimMontage* AM_Attack;
 
 	UPROPERTY(EditAnywhere, Category = VisualEffect)
 	UParticleSystem* ParringParticle;
@@ -87,6 +89,7 @@ public:
 	UAttributeComponent* Attributes;
 	UPROPERTY(VisibleAnywhere)
 	UHealthBarComponent* HealthBarWidget;
+	void Dead();
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
