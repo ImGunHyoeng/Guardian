@@ -20,6 +20,7 @@ float ASojeongbang::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 	//HealthBarWidget->SetHealthPercent(Attributes->GetHealthPercent());
 	if (!Attributes->IsAlive())
 	{
+		player->BossHpUpdate(0);
 		//Cast<ACCharacterPlayer>(DamageCauser->GetOwner())->EnemyDie();
 		PlayAnimMontage(AM_DeadReact);
 		HealthBarWidget->SetVisibility(false);
