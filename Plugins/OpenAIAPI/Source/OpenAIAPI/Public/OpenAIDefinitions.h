@@ -28,7 +28,8 @@ enum class EOAChatEngineType : uint8
 	GPT_4 = 1 UMETA(ToolTip = "More capable than any GPT-3.5 model, able to do more complex tasks, and optimized for chat. Will be updated with our latest model iteration."),
 	GPT_4_32k = 2 UMETA(ToolTip = "Same capabilities as the base gpt-4 model but with 4x the context length. Will be updated with our latest model iteration."),
 	GPT_3_5_TURBO_FineTunning = 3 UMETA(ToolTip = "Fine Tuning Model gpt3.5"),
-	GPT_3_5_TURBO_FineTunning_V2 = 4 UMETA(ToolTip = "Fine Tuning Model gpt3.5 upgrade")
+	GPT_3_5_TURBO_FineTunning_V2 = 4 UMETA(ToolTip = "Fine Tuning Model gpt3.5 upgrade"),
+	GPT_4o_2024_08_06 = 5 UMETA(ToolTip = "Fine Tuning Model gpt4o upgrade")
 };
 
 UENUM(BlueprintType)

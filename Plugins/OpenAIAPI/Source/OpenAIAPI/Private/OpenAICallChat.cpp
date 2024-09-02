@@ -58,6 +58,9 @@ void UOpenAICallChat::Activate()
 		case EOAChatEngineType::GPT_3_5_TURBO_FineTunning_V2:
 			apiMethod = "ft:gpt-3.5-turbo-0125:personal::9tqMdMe0";
 			break;
+		case EOAChatEngineType::GPT_4o_2024_08_06:
+			apiMethod = "gpt-4o-2024-08-06";
+			break;
 
 		}
 		
