@@ -27,7 +27,7 @@
 #include "HUD/PlayerOverlay.h"
 #include "Components/InventoryComponent.h"
 #include "HUD/MenuWidget.h"
-
+#include "Enemy/Sojeongbang.h"
 
 
 
@@ -111,6 +111,13 @@ void ACCharacterPlayer::BeginPlay()
 	stateFactory->AddToRoot();
 	curState = stateFactory->CreateNORMAL();
 	curState->EnterStates();
+	
+	TArray<AActor*> FoundActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ASojeongbang::StaticClass(), FoundActors);
+	 //Cast<ASojeongbang>(FoundActors.begin());
+	Boss = Cast<ASojeongbang>(FoundActors[0]);
+	//Boss->MyStandardDelegate.BindUObject(this->PlayerOverlay, &UPlayerOverlay::ShowBossHp);
+	Boss->MyParamDelegate.BindUObject(this->PlayerOverlay, &UPlayerOverlay::SetVisiblityBossHp);
 	
 	//curState = stateFactory->CreateS_IDLE();
 	//curState = NewObject<AS_IDLE_NEWA>();

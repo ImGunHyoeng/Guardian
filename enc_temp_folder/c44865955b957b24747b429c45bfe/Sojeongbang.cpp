@@ -23,8 +23,7 @@ float ASojeongbang::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 		player->BossHpUpdate(0);
 		//Cast<ACCharacterPlayer>(DamageCauser->GetOwner())->EnemyDie();
 		PlayAnimMontage(AM_DeadReact);
-		//HealthBarWidget->SetVisibility(false);
-		Excute(false);
+		HealthBarWidget->SetVisibility(false);
 		Dead();
 		SetLifeSpan(5.0f);
 		return DamageAmount;

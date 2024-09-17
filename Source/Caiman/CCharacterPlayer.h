@@ -45,6 +45,9 @@ class CAIMAN_API ACCharacterPlayer : public ACCharacterBase,public IHitInterface
 	GENERATED_BODY()
 public:	
 
+	UPROPERTY()
+	class ASojeongbang* Boss;//보스 가져오기
+
 	void BossHpUpdate(float percent);
 	UPROPERTY(VisibleAnywhere, BluePrintReadOnly, Category = Camera)
 	TObjectPtr<class USpringArmComponent>CameraBoom;//스프링암

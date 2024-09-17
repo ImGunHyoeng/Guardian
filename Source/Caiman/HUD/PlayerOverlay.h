@@ -18,7 +18,13 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetHealthBarPercent(float Percent);
 	void SetStaminaBarPercent(float Percent);
+	UFUNCTION()
+	void ShowBossHp();
 
+	UFUNCTION()
+	void HideBossHp();
+	UFUNCTION()
+	void SetVisiblityBossHp(bool condition);
 	UFUNCTION(BlueprintImplementableEvent)
 	void SetImage(int Set);
 	UFUNCTION(BlueprintImplementableEvent)
