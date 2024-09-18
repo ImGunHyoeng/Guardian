@@ -28,7 +28,7 @@
 #include "Components/InventoryComponent.h"
 #include "HUD/MenuWidget.h"
 #include "Enemy/Sojeongbang.h"
-
+#include "Components/SlateTest.h"
 
 
 ACCharacterPlayer::ACCharacterPlayer()
@@ -115,9 +115,14 @@ void ACCharacterPlayer::BeginPlay()
 	TArray<AActor*> FoundActors;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ASojeongbang::StaticClass(), FoundActors);
 	 //Cast<ASojeongbang>(FoundActors.begin());
-	Boss = Cast<ASojeongbang>(FoundActors[0]);
-	//Boss->MyStandardDelegate.BindUObject(this->PlayerOverlay, &UPlayerOverlay::ShowBossHp);
-	Boss->MyParamDelegate.BindUObject(this->PlayerOverlay, &UPlayerOverlay::SetVisiblityBossHp);
+	if (FoundActors.IsValidIndex(0))
+	{
+		Boss = Cast<ASojeongbang>(FoundActors[0]);
+		//Boss->MyStandardDelegate.BindUObject(this->PlayerOverlay, &UPlayerOverlay::ShowBossHp);
+		Boss->MyParamDelegate.BindUObject(this->PlayerOverlay, &UPlayerOverlay::SetVisiblityBossHp);
+		/*SlateTest temp;
+		GEngine->GameViewport->AddViewportWidgetForPlayer(Cast<ULocalPlayer>(getPlayerController()), temp.Create(),1);*/
+	}
 	
 	//curState = stateFactory->CreateS_IDLE();
 	//curState = NewObject<AS_IDLE_NEWA>();

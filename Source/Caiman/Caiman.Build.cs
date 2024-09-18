@@ -23,7 +23,10 @@ public class Caiman : ModuleRules
 			"Niagara",
 			"AIModule", 
 			"GameplayTasks",
-			"UMG"
+			"UMG",
+			"Slate",
+			"SlateCore"
+
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
