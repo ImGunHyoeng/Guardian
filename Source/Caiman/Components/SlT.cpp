@@ -16,7 +16,7 @@ ASlT::ASlT()
 void ASlT::BeginPlay()
 {
 	Super::BeginPlay();
-	Super::BeginPlay();
+
 	TSharedRef<SVerticalBox> widget = SNew(SVerticalBox)
 		+ SVerticalBox::Slot()
 		.HAlign(HAlign_Center)
@@ -30,7 +30,9 @@ void ASlT::BeginPlay()
 				]
 		];
 	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
-
+	
+	GEngine->GameViewport->AddViewportWidgetForPlayer(PlayerController->GetLocalPlayer(),widget,1);
+	//GEngine->GameViewport->AddViewportWidgetForPlayer(PlayerController);
 	//PlayerController;
 }
 
