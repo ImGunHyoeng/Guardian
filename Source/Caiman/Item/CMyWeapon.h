@@ -28,6 +28,8 @@ public:
 
 	UPROPERTY(VisibleAnywhere, Category = Mesh)
 	USkeletalMeshComponent* Mesh;
+	UPROPERTY(VisibleAnywhere, Category = SceneComponent)
+	USceneComponent* SceneComponent;
 	UPROPERTY(VisibleAnywhere, Category = Values)
 	float Power;
 	UFUNCTION(BlueprintPure)

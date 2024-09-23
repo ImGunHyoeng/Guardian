@@ -13,8 +13,10 @@ ACMyWeapon::ACMyWeapon()
 
 	//무기 오브젝트 만들고 애셋 적용하기
 	Mesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Mesh"));
-
-	RootComponent = Mesh;
+	SceneComponent=CreateDefaultSubobject<USceneComponent>(TEXT("Scene"));
+	RootComponent = SceneComponent;
+	Mesh->SetupAttachment(SceneComponent);
+	//AttachToComponent(GetRootComponent());
 	Mesh->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 	
 	trace = CreateDefaultSubobject<UCTraceComponent>(FName("TRACE"));
