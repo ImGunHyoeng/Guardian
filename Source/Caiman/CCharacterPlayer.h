@@ -265,7 +265,8 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	uint32 bIsParringEnd : 1;
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<UUserWidget> MinimapClass;
 	uint32 bIsParringSuccessEnd : 1;
 	uint32 bIsSheath : 1;
 	uint32 bIsAttack : 1;
