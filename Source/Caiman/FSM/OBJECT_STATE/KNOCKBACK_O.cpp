@@ -66,6 +66,7 @@ void UKNOCKBACK_O::SetPoint(const FVector& ImpactPoint)
 
 void UKNOCKBACK_O::Start()
 {
+	ctx->StopAnimMontage();
 	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ctx->GetHittedParticle(), ParticlePoint);
 	FVector forward = ctx->GetActorForwardVector();
 	FVector hitno_z = FVector(ParticlePoint.X, ParticlePoint.Y, ctx->GetActorLocation().Z);

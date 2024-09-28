@@ -9,7 +9,7 @@
 
 float ASoldier::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
-	//Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+	Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
 	isAttacked = true;
 	Attributes->ReceiveDamage(DamageAmount);
 	HealthBarWidget->SetHealthPercent(Attributes->GetHealthPercent());

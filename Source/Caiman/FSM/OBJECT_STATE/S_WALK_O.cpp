@@ -39,7 +39,7 @@ void US_WALK_O::updateInput()
 	}
 	if (ctx->getPlayerController()->WasInputKeyJustPressed(EKeys::R))
 	{
-		ctx->Draw();
+		//ctx->Draw();
 		SwitchState(factory->CreateDRAWING());
 		return;
 	}

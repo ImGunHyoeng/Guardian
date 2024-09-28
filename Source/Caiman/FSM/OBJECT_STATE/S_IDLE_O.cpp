@@ -32,7 +32,6 @@ void US_IDLE_O::updateInput()
 	}
 	if (ctx->getPlayerController()->WasInputKeyJustPressed(EKeys::R))
 	{
-		ctx->Draw();
 		SwitchState(factory->CreateDRAWING());
 		return;
 	}
@@ -52,6 +51,7 @@ void US_IDLE_O::update()
 void US_IDLE_O::enter()
 {
 	kwang = ctx->getAnimInstance();
+	ctx->NoAnimSheath();
 	if (kwang)
 		kwang->setSheath();
 }

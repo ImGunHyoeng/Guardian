@@ -30,6 +30,7 @@ void UDRAWING_O::update()
 void UDRAWING_O::enter()
 {
 	canChange = false;
+	ctx->Draw();
 	end = false;
 }
 
