@@ -131,6 +131,7 @@ void UCTraceComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 		if (Hit)
 		{
 			Hit->Execute_GetHit(result.GetActor(), result.ImpactPoint, GetOwner());
+			UE_LOG(LogTemp, Warning, TEXT("Position: X: %.2f, Y: %.2f, Z: %.2f"), result.ImpactPoint.X, result.ImpactPoint.Y, result.ImpactPoint.Z);
 		}
 	}
 	
