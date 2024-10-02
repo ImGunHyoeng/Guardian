@@ -36,6 +36,10 @@
 		{
 			"Name": "MovieRenderPipeline",
 			"Enabled": true
+		},
+		{
+			"Name": "OpenAIAPI",
+			"Enabled": true
 		}
 	]
 }
