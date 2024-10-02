@@ -58,7 +58,8 @@ void AGuardianEnemyBase::BeginPlay()
 
 float AGuardianEnemyBase::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
-	return 0.0f;
+	Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+	return DamageAmount;
 }
 
 void AGuardianEnemyBase::GetHit_Implementation(const FVector& ImpactPoint, AActor* Offense)

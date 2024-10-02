@@ -474,7 +474,8 @@ float ACCharacterPlayer::TakeDamage(float DamageAmount, FDamageEvent const& Dama
 	{
 		Attributes->ReceiveDamage(Damage);
 		if (Attributes->IsAlive())
-			PlayerOverlay->SetHealthBarPercent(Attributes->GetHealthPercent());
+			PlayerOverlay->SetPlayerHPImage(Attributes->GetCurHp() / 10);
+			//PlayerOverlay->SetHealthBarPercent(Attributes->GetHealthPercent());
 		else
 		{
 			PlayerOverlay->SetHealthBarPercent(0);

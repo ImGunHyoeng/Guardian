@@ -37,7 +37,7 @@ void UD_IDLE_O::updateInput()
 	}
 	if (ctx->getPlayerController()->WasInputKeyJustPressed(EKeys::R))
 	{
-		ctx->Sheath();
+		//
 		SwitchState(factory->CreateSHEATHING());
 		return;
 	}
@@ -73,6 +73,7 @@ void UD_IDLE_O::update()
 void UD_IDLE_O::enter()
 {
 	ctx->SetSheath(false);
+	ctx->NoAnimDraw();
 	kwang = ctx->getAnimInstance();
 	if (kwang)
 		kwang->setDraw();

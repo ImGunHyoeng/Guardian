@@ -23,6 +23,9 @@ public:
 
 	UFUNCTION()
 	void HideBossHp();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void SetPlayerHPImage(int hp);
 	UFUNCTION()
 	void SetVisiblityBossHp(bool condition);
 	UFUNCTION(BlueprintImplementableEvent)

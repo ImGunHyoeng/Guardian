@@ -60,7 +60,7 @@ void UD_WALK_O::updateInput()
 	}
 	if (ctx->getPlayerController()->WasInputKeyJustPressed(EKeys::R))
 	{
-		ctx->Sheath();
+		//ctx->Sheath();
 		SwitchState(factory->CreateSHEATHING());
 		return;
 	}

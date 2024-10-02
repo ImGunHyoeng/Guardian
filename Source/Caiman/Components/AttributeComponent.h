@@ -40,6 +40,8 @@ public:
 	FORCEINLINE float GetAttackCost()const { return AttackCost; }
 	FORCEINLINE float GetChargeCost()const { return ChargeCost; }
 	FORCEINLINE float GetMaxStamina()const { return MaxStamina; }
+	FORCEINLINE float GetMaxHp()const { return MaxHealth; }
+	FORCEINLINE float GetCurHp()const { return Health; }
 	
 	FORCEINLINE float GetPower()const { return Power; }
 	FORCEINLINE void SetPower(float input=10) { Power = input; }

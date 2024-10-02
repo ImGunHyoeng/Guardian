@@ -29,6 +29,7 @@ void USHEATHING_O::update()
 void USHEATHING_O::enter()
 {
 	ctx->SetSheath(true);
+	ctx->Sheath();
 	canChange = false;
 	end = false;
 }
