@@ -33,7 +33,7 @@ void ACMyWeapon::BeginPlay()
 {
 	Super::BeginPlay();
 	trace->WeaponMesh = Mesh;
-	Power = 10.0f;
+	Power = 25;
 }
 
 // Called every frame
