@@ -63,9 +63,16 @@ void UCTraceComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 		return;
 	}
 	attackObj.Add(GetOwner()->GetOwner());
+
+
 	start = WeaponMesh->GetSocketLocation(FName("Start"));
 	end = WeaponMesh->GetSocketLocation(FName("End"));
+
+	UE_LOG(LogTemp, Warning, TEXT("Origial StartPosition: X: %.2f, Y: %.2f, Z: %.2f"), start.X, start.Y, start.Z);
+	UE_LOG(LogTemp, Warning, TEXT("Origial EndPosition: X: %.2f, Y: %.2f, Z: %.2f"), end.X, end.Y, end.Z);
+	//end= end * 1.2;절대적으로 좌표로 하면은 좌표의 값에 따라서 변동이 일어나게 된다.
 	dir = end - start;
+	dir *= 3;
 	//Dir.Size();
 	UE_LOG(LogTemp, Warning, TEXT("StartPosition: X: %.2f, Y: %.2f, Z: %.2f"), start.X, start.Y, start.Z);
 	UE_LOG(LogTemp, Warning, TEXT("EndPosition: X: %.2f, Y: %.2f, Z: %.2f"), end.X, end.Y, end.Z);
@@ -74,12 +81,12 @@ void UCTraceComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 	//UE_LOG(LogTemp, Warning, TEXT("Start:%s"), *start.ToString());
 	//if (IsActive)
 	
-	mySphere = FCollisionShape::MakeSphere(10);
-	GetWorld()->SweepMultiByChannel(outResults, start, end, FQuat::Identity, ECollisionChannel::ECC_GameTraceChannel1, mySphere);
+	mySphere = FCollisionShape::MakeSphere(30);
+	GetWorld()->SweepMultiByChannel(outResults, start, dir, FQuat::Identity, ECollisionChannel::ECC_GameTraceChannel1, mySphere);
 	//DrawDebugLine(GetWorld(), Start, End, FColor::Red, false, 5.0f);
 	color = outResults.IsEmpty() ? FColor::Red : FColor::Green;
 	//if(!outResults.IsEmpty())
-	//DrawDebugCapsule(GetWorld(),(start+end)/2, dir.Size()*0.5+10,10, FRotationMatrix::MakeFromZ(dir).ToQuat(),color, false, 2.0f);
+	//DrawDebugCapsule(GetWorld(),(start+end)/2, dir.Size()*0.5,30, FRotationMatrix::MakeFromZ(dir).ToQuat(),color, true, 2.0f);
 
 	for (const auto & result : outResults)
 	{

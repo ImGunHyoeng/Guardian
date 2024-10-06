@@ -474,7 +474,7 @@ float ACCharacterPlayer::TakeDamage(float DamageAmount, FDamageEvent const& Dama
 	{
 		Attributes->ReceiveDamage(Damage);
 		if (Attributes->IsAlive())
-			PlayerOverlay->SetPlayerHPImage(Attributes->GetCurHp() / 10);
+			PlayerOverlay->SetPlayerHPImage(Attributes->GetCurHp() / 20);
 			//PlayerOverlay->SetHealthBarPercent(Attributes->GetHealthPercent());
 		else
 		{
@@ -486,6 +486,7 @@ float ACCharacterPlayer::TakeDamage(float DamageAmount, FDamageEvent const& Dama
 			InputMode.SetWidgetToFocus(Restart->GetCachedWidget());
 			getPlayerController()->SetInputMode(InputMode);
 			getPlayerController()->SetShowMouseCursor(true);
+			PlayerOverlay->SetPlayerHPImage(-1);
 			SetRagdollPhysics();
 		}
 	}
