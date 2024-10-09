@@ -27,6 +27,7 @@ float ASojeongbang::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 		Excute(false);
 		Dead();
 		SetLifeSpan(5.0f);
+		Clear(player);
 		return DamageAmount;
 	}
 	if (GetMesh()->GetAnimInstance()->Montage_IsPlaying(AM_HitReact))
