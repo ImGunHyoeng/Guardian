@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Enemy/GuardianEnemyBase.h"
+#include "CCharacterPlayer.h"
 #include "Sojeongbang.generated.h"
 
 /**
@@ -21,7 +22,11 @@ public:
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 	virtual void HitReact(const FVector& ImpactPoint);
 	virtual void DeadReact(const FVector& ImpactPoint);
-	class ACCharacterPlayer* player;
+	UPROPERTY()
+	ACCharacterPlayer* player;
 	UFUNCTION(BlueprintCallable)
 	void Excute(bool condition);
+
+	UFUNCTION(BlueprintImplementableEvent)//블루프린트 호출 함수
+	void Clear(ACCharacterPlayer *Input);
 };
