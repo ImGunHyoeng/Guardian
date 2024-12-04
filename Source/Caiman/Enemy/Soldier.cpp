@@ -13,13 +13,18 @@ float ASoldier::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, 
 	isAttacked = true;
 	Attributes->ReceiveDamage(DamageAmount);
 	HealthBarWidget->SetHealthPercent(Attributes->GetHealthPercent());
+	if (ones)
+		return DamageAmount;
 	if (!Attributes->IsAlive())
 	{
+		
+		ones = true;
 		PlayAnimMontage(AM_DeadReact);
 		HealthBarWidget->SetVisibility(false);
 		Dead();
 		SetLifeSpan(5.0f);
 		return DamageAmount;
+		
 	}
 	if (GetMesh()->GetAnimInstance()->Montage_IsPlaying(AM_HitReact))
 		StopAnimMontage();

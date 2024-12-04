@@ -18,18 +18,27 @@ float ASojeongbang::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 	player->BossHpUpdate(Attributes->GetHealthPercent());
 	//Cast<ACCharacterPlayer>(DamageCauser->GetOwner())->EnemyDie();
 	//HealthBarWidget->SetHealthPercent(Attributes->GetHealthPercent());
+	if (ones)
+		return DamageAmount;
 	if (!Attributes->IsAlive())
 	{
-		player->BossHpUpdate(0);
-		Cast<ACCharacterPlayer>(DamageCauser->GetOwner())->EnemyDie();
-		PlayAnimMontage(AM_DeadReact);
-		//HealthBarWidget->SetVisibility(false);
-		Excute(false);
-		Dead();
-		SetLifeSpan(5.0f);
-		Clear(player);
-		return DamageAmount;
+
+
+			ones = true;
+			PlayAnimMontage(AM_DeadReact);
+			player->BossHpUpdate(0);
+			Dead();
+			Clear(player);
+
+			Cast<ACCharacterPlayer>(DamageCauser->GetOwner())->EnemyDie();
+
+			//HealthBarWidget->SetVisibility(false);
+			Excute(false);
+			SetLifeSpan(5.0f);
+			return DamageAmount;
+
 	}
+	
 	if (GetMesh()->GetAnimInstance()->Montage_IsPlaying(AM_HitReact))
 		StopAnimMontage();
 	PlayAnimMontage(AM_HitReact);
