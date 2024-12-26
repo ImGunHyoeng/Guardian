@@ -7,35 +7,19 @@
 
 ## :paperclip: 목차
 * [개요](#개요)
-* [ 게임 설명](#게임-설명)
 * [빌드파일&영상링크](#빌드파일영상링크)
-* [스택](#스택)
-* [게임플레이 방식](#게임플레이-방식)
-* [핵심기술](#핵심기술)
-* [후기](#후기)
+* [아이디어 배경 및 목적](#아이디어-배경-및-목적)
+* [내용 및 결과](#내용-및-결과)
+* [차별성](#차별성)
+* [기대효과 및 활용방안](#기대효과-및-활용방안)
+* [최종 결과물](#최종-결과물)
+* [SDK&API](#SDKAPI)
 
 ## 개요
 ---
 * 개발 기간: 24.08 -24.10
 * 멤버구성 : 김기홍,강신혁,임건형
 * 언리얼을 이용한 액션 역사 RPG
-
-## 게임 설명
----
-
-
-액션을 통해서 적과 싸우고 승리하세요
-* 다양한 조작을 통해서 적과 싸우세요
-<img width="428" alt="image" src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/35fab8c5-0fb3-4ea9-9ef4-b25086ad37e9">
-<img width="427" alt="image" src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/606830f9-ad81-4755-93e8-afa418c7299b">
-
-
-아이템을 얻고 이를 적과의 전투에서 활용해보세요.
-* 아이템을 통해서 체력을 회복할 수 있습니다.
-<img width="430" alt="image" src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/d3653624-772c-4596-8983-9d05430c7feb">
-
-<img width="428" alt="image" src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/e15533c9-abc4-42c7-b88b-3a0fb9eec615">
-
 
 ## 빌드파일&영상링크
 ---
@@ -45,10 +29,154 @@
 
 
 
-##  스택
+## 아이디어 배경 및 목적
 ---
-### SDK & API
+본 디지털 콘텐츠 역사의 수호자는 백제 멸망 전 정림사지를 배경으로 한 3D 역사 교육 콘텐츠로, 정
+림사지 고증을 바탕으로 복원하였다. 사용자는 게임 스토리를 통해 당나라 소정방의 군사가 침입한 상
+황에서 역사의 수호자가 되어 다양한 미션을 수행하며 실감 나는 체험을 하게 된다. 백제의 금동대향
+로 구하기, 백제 유물수집, 정림사 오층석탑을 보호하는 미션을 수행한다. 또한 인공지능 시스템과의 상
+호작용으로 심층적인 역사 교육을 흥미롭고 재미있게 전달한다.
+ 1. 아이디어 배경 및 목적
+<아이디어 배경> - 정림사지는 백제 성왕 538년 봄, 현재의 부여인 사비성으로 도읍을 옮기면서 건립된 사찰로,         
+수도의 중심지에 세워졌습니다. 사찰은 백제의 불교 중심지로서 중요한 역할을 했으며, 수도의 상징적  
+인공간이다. 특히, 정림사지의 5층 석탑 표면에는 당나라가 백제를 멸망시킨 후 그 승리를 기념하기    
+위해 새겨진 비문이 현재까지 남아 있어, 정림사가 백제 왕조의 흥망성쇠와 깊이 연관된 장소이다. 
+이로 인해 정림사지는 단순한 종교적 공간을 넘어, 백제의 역사와 운명을 상징하는 중요한 국가유산이다.
+국보 제9호 부여 정림사지 오층석탑 (扶餘 定林寺址 五層石塔)
 
+ <콘텐츠 목표>  
+정림사지의 고고학적 자료를 바탕으로 소실된 건물을 디지털로 복원하여 플레이어가 당시 백제의 건
+축 양식과 문화적 배경을 체험할 수 있도록 한다. 
+
+콘텐츠를 통해 플레이어는 백제의 유물과 역사적 사건을 중심으로 다양한 미션을 수행하며, 역사 수
+호자로서 백제의 마지막 전투와 사비성 방어 재현을 경험한다. 
+
+이를 통해 플레이어는 몰입형 경험을 통해 역사를 심층적으로 이해하고, 한국의 문화유산을 지키는 
+중요성을 인식하며 역사 교육의 가치를 극대화하는 것이다
+
+
+
+
+##  내용 및 결과
+---
+기획
+역사 수호자 콘텐츠는 MZ 세대들이 좋아하는 가상현실 게임 콘텐츠로 제작하기 위해 최신 디지털 
+기술를 적용해 개발하여 과거 역사를 단순한 교육이 아닌 몰입감 높은 경험을 갖을 수 있게 한다.
+
+국보 9호인 정림사지는 백제의 중요한 사찰이며, 백제의 멸망과 같은 역사적 사건을 시각적 기술로 
+복원한 정림사지를 실감 체험할 수 있게 한다
+
+콘텐츠 시작은 이야기 중심으로 쉽게 이해를 돕고 사용자가 타임슬립으로 역사의 수호자가 되어 당
+나라 군사와 전쟁을 하게 된다
+
+백제와 나당전쟁 상황에서 3가지 미션이 주어지는데 ①금동대향로를 탈출, ②백제의 유물수집, ③정
+림사지 5층 석탑 보호를 해야 하며 소정방이 이끄는 당나라 군사를 물리쳐야 한다
+
+당과 전쟁 승리를 통하여 정림사를 지키고 비문 작성을  못하게 막아야 한다
+
+특히 인공지능 시스템으로 개발한 챗봇 시스템인 석탑과 대화는 심층적인 역사 정보를 알 수 있다.
+
+정림사지 5층 석탑 인공지능 시스템 학습을 통해 알게 된 역사 정보는 퀴즈를 풀며 더욱 깊이 있게 
+이해할 수 있도록 한다
+<img width="595" alt="image" src="https://github.com/user-attachments/assets/5372c749-ddac-4734-be82-e9f91e026c27" />
+<img width="613" alt="image" src="https://github.com/user-attachments/assets/4717dde8-e8c6-4087-85ea-7e562e508662" />
+
+l 클라이언트 시스템 구현
+
+프로그램 시스템에서 사용자는 적과 싸우며 정림사지를 지켜야한다. 적은 언리얼 엔진에서 C++로 
+이루어진 AI Controller를 사용하여 AI를 조작하고, 행동 트리(Behavior Tree, BT)를 구성하여 우선순
+위에 따라 행동하도록 설정하였다
+
+사용자 컨트롤하는 캐릭터의 행동은 입력에 따라 상태를 변경하는 하이어라키컬 상태 머신
+(Hierarchical State Machine, HFSM)을 사용하여 액션이 실감 나게 구현하였다
+l 인공지능 AI 챗봇 시스템 구현
+
+전쟁 Scene이 끝나고 정림사지 석탑과 대화를 통해서 사용자가 역사 정보를 깊이있개  습득할 수 
+있는 인공지능 AI 챗봇을 구성하였다.
+
+사용자가 궁금한 역사 정보에 대한 질문과 답변에 대한 정보를 만들어 AI 모델을 학습시켜(파인튜닝) 
+특정 정림사지의 정보에 대해 정확하게 답변하도록 만들었으며,  AI 모델을 학습을 통합하여 API 키를 
+이용하여 언리얼 엔진 클라이언트에 연결하여 역사 수호자 정림사지 3D 환경에서 챗봇을 구현였다.
+
+<img width="662" alt="image" src="https://github.com/user-attachments/assets/4c849727-8226-4f7f-8ccd-4941252ae53a" />
+
+
+l 3D 그래픽 에셋 제작
+언리얼엔진5에서 나나이트와 루멘 기술을 사용하여 폴리곤이 많은 데이터를 최적화하여 높은 퀄리티
+로 구동이 될 수 있도록 구현하였다.
+
+블루프린트를 활용한 머티리얼 제작하여 실시간으로 환경과 같은 자연스러운 식생을 구현하였다.
+
+3D 캐릭터 및 환경은 3D max에서 폴리곤과 서페에서 Texture를 제작하고 Biped로 Bon을 제작하여 
+리깅하고 Anmation을 할 수 있게 skining을 하여 Fbx Data로 언리얼 에셋을 구축하였다
+
+<img width="667" alt="image" src="https://github.com/user-attachments/assets/5bed51e2-3407-4e5c-8cc6-e3e768b4f1f9" />
+
+
+# 차별성 
+---
+**고증에 기반한 정확한 역사 복원**: 본 콘텐츠는 정림사지와 백제의 역사를 고증에 기반하여  3D 배경
+을 제작하였다. 이는 단순한 역사적 배경 설정을 넘어, 실제 유적과 유물에 대한 깊이 있는 연구와 
+고고학적 자료를 바탕으로 디지털로 재현한 것이 특징이다
+
+**몰입형 경험 제공**: 사용자는 단순히 정보를 습득하는 것을 넘어, 게임 속에서 역사적 상황을 직접 체
+험할 수 있다 예를 들어, 당나라 소정방의 군사가 침입하는 상황에서 역사의 수호자가 되어 다양한 
+미션을 수행하며, 백제의 역사적 사건 속에서 개연성 있는 미션을 경험하게 된다.
+
+**인공지능과의 상호작용**: 인공지능(AI)과 챗봇을 활용하여 사용자가 정림사지와 관련된 역사적 정보를 
+학습하고, 이를 바탕으로 퀴즈와 같은 상호작용을 통해 지식을 공고히 할 수 있다. 이는 학습 효과를 
+극대화하면서도 흥미를 잃지 않게 만드는 중요한 요소이다
+
+**교육과 오락의 융합**: 이 콘텐츠는 교육적 가치와 오락성을 결합하여, MZ 세대와 같은 젊은 층이 역
+사에 더 쉽게 접근하고 이해할 수 있도록 설계되었다. 단순한 역사 교육이 아닌, 게임의 스토리와 미
+션을 통해 역사를 자연스럽게 배우고, 깊이 있는 이해를 얻을 수 있다
+
+**글로벌 확장 가능성**: 한국의 문화가 드라마 K팝 댄스가 같이 널리 알려지고 있는 지금, 이 콘텐츠는 
+글로벌 시장에서도 메타버스로 활용될 수 있는 잠재력을 지니고 있으며, 세계적으로도 역사 교육 콘
+텐츠에 대한 수요가 높은 만큼, 다양한 언어와 문화권에서 적용 가능하여, 한국의 역사와 문화를 전 
+세계에 알리는 데 기여할 수 있다.
+
+# 기대효과 및 활용방안 
+
+본 콘텐츠는 디지털 시대에 역사 교육의 노잼의 한계를 극복하고, 일방적인 상호작용이 아닌 개연성 
+있는 역사의 이야기를 몰입감 있고 인공지능을 활용한 상호작용 학습 환경을 제공한다.
+
+특히, 정림사지와 같은 국가유산의 역사 정보를 이야기 중심으로 전개하며 과거 속을 가상으로 체험
+할 수 있게 하여, 물리적 거리나 접근성 문제를 해결하였다.
+
+**기대효과**
+
+정림사지에 대한 관심과 이해가 크게 증대될 것으로 기대된다. 정림사지와 같은 유적지를 디지털로 
+복원하고, 이를 게임이나 가상 체험 형태로 제공함으로써, 사용자는 보다 친근하게 역사를 접하고, 
+그 중요성을 체감할 수 있다.
+ 
+사용자들이 과거 역사의 아픔을 새로운 시점으로 제사하여 한국의 역사와 문화유산에 대한 자긍심을 
+고취시킬 뿐만 아니라, 국가유산의 보존과 보호의 필요성을 인식시키는 데 중요한 역할을 할 것이다
+
+**활용방안**
+
+본 콘텐츠는 박물관이나 현장 디지털 교재 뿐만아니라 콘텐츠 포탈에서  활용될 수 있으며, 학생들
+과 MZ 세대들이 게임을 통해 역사를 배우고 체험하도록 유도할 수 있다. 또한
+
+문화재청이나 박물관과의 협력을 통해 정림사지와 같은 유적지의 홍보 자료로 사용될 수 있으며, 관
+광 산업에서는 가상 체험을 통한 새로운 관광 콘텐츠로 활용될 수 있다. 
+
+더 나아가, 메타버스 디지털 콘텐츠로 해외에 알리는 데에도 중요한 역할을 할 수 있으며, 글로벌 플
+랫폼을 통해 지역 문화유산을 세계에 소개하고, 문화 교류의 매개체로 기능할 수 있다.
+
+# 최종 결과물
+---
+<img width="637" alt="image" src="https://github.com/user-attachments/assets/70b7a262-31d5-430f-a658-764fc4c614df" />
+
+<img width="643" alt="image" src="https://github.com/user-attachments/assets/785af95e-e4e1-406c-9b44-af454387e244" />
+
+<img width="637" alt="image" src="https://github.com/user-attachments/assets/a78a25a6-b3cc-45f0-b183-9c26b8429e67" />
+
+<img width="631" alt="image" src="https://github.com/user-attachments/assets/27a4da6e-0d45-4903-9ca0-371976480c9a" />
+
+
+## SDK & API
+---
 <img src="https://img.shields.io/badge/unreal engine-0E1128?style=for-the-badge&logo=unreal engine&logoColor=white">
 <img src="https://img.shields.io/badge/visual studio-5C2D91?style=for-the-badge&logo=visual studio&logoColor=white">
 <img src="https://img.shields.io/badge/openai-412991?style=for-the-badge&logo=openai&logoColor=white">
@@ -70,59 +198,3 @@
 <img src="https://img.shields.io/badge/notion-000000?style=for-the-badge&logo=notion&logoColor=white">
 
 * 📄 24.7 ~  24.10 : [https://www.notion.so/4fcff93e64464e7f83d84a72745a0cd4?pvs=4](https://flash-reaper-e22.notion.site/e6563e75d3d64c02b082c36f8efa38ce?pvs=4)
-
-
-##  게임플레이 방식
----
-![-Clipchamp17-ezgif com-optimize](https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/b8137cc6-78bd-4c65-8383-ac77d1d08ac6)
-![-Clipchamp17-ezgif com-optimize (1)](https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/7423f48d-1a84-403b-9d7a-b5f7afedd971)
-
-* 조작방법
-<img width="428" alt="image" src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/768436d2-2128-41d6-b7a4-d54e53ed513e">
-
-
-* 공격기술 종류
-  
-|기본공격| 차지어택 | 슈퍼아머차지어택 | 점프어택| 패링 실패 | 패링 성공 |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|<img src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/9b1903bb-5658-4702-bccf-be0ea636ec5b" width="80%" height="80%">|<img src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/4a59eeab-d683-41d0-8544-8358d797342c" width="80%" height="80%">|<img src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/2b3216b7-0ac9-4ed0-ba66-ddbbfbcf79b9" width="80%" height="80%">|<img src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/21b3ab78-eff6-4e90-a03f-77d2411ba056" width="80%" height="80%">|<img src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/572337f0-9fdd-4eed-a61a-33ca0b21a4f4" width="80%" height="80%">|<img src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/c898878a-3d1a-4d4a-914b-2483d7fc5947" width="80%" height="80%">|
-|기본적인 공격으로 이단공격이 가능하다|차지를 통해서 공격한다|공격을 받아도 취소되지 않으며 데미지는 일반 차지공격보다는 낮음|점프해서 공격한다|패링이 실패하면 리스크로 일정시간동안 못 움직인다.|패링이 성공한다면 이렇게 작동한다.|
-
-
-
-
-##  핵심기술
----
-
-자연스러운 플레이어 움직임: HFSM (Hierarchical Finite State Machine) 기술을 사용하여 상황에 따라서 플레이어의 피격판정이 다르게 하였습니다.
-<img src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/3e2904fc-dbcc-4a55-b1d5-1c4ce3483bde" width="200" height="200">
-
-[HFSM](https://flash-reaper-e22.notion.site/8-HFSM-b1e636689e0b4b62bd53d471bab65715?pvs=4)
-
-똑똑한 적 AI: BT (Behavior Tree) 을 통해 적 캐릭터의 행동을 상황에 맞게 행동하도록 구성하였습니다.
-<img src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/c10ee2a7-a8be-4b15-9a9d-7a4ac5837788" width="200" height="200">
-
-[BT](https://flash-reaper-e22.notion.site/8-HFSM-b1e636689e0b4b62bd53d471bab65715?pvs=4)
-
-아이템과 인벤토리: DataTable을 활용하여 아이템과 인벤토리 시스템을 구축했습니다.
-
-<img src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/f4247fbb-a0b7-489c-9a70-d00e5615bff4" width="200" height="200">
-
-[UI ](https://flash-reaper-e22.notion.site/9-UI-4d930adfef004b72a26dff7828215934?pvs=4)
-
-
-다양한 애니메이션: Animation Retargeting 기술을 사용하여 캐릭터에 다양한 애니메이션이 적용되도록 하였습니다.
-<img src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/e3acb981-92c1-4f24-827a-86fe10306171" width="200" height="200">
-[리타겟팅 ](https://flash-reaper-e22.notion.site/0e85429872964a4b85e4e1c6e780ba8f?pvs=4)
-
-## 후기
----
-
-리팩토링: HFSM으로 가기전에 FSM을 좀 더 발전된 상태패턴으로 변화시킬 때 테스트코드를 작성해서 리펙토링해보았고, 이를 통해서 테스트코드의 중요성과 리펙토링을 안전하게 진행하는 법을 알게 되어서 좋았고,
-<img src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/ee315cd1-c388-4102-871a-865216c2b1de" width="200" height="200">
-
-HFSM을 구현할 당시에 상태의 뎅글링 포인터 이슈가 일어났는데 이를 해결하기위해서 GC에 대한 자세한 작동방법을 알게 되어서 좋았습니다.
-
-<img src="https://github.com/ImGunHyoeng/temp_caiman/assets/102517991/1110d0dd-1fcb-4ef4-a9d3-d63dd3bb8ff1" width="200" height="200">
-
-위와 같이 프로젝트를 진행하면서 새롭게 지식을 알게되고 발전하게 되어서 좋았습니다.
