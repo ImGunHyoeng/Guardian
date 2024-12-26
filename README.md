@@ -23,7 +23,7 @@
 
 ## 빌드파일&영상링크
 ---
-* 💾  https://drive.google.com/file/d/1-F9IsyQBefgB67ZfxXJkdxqRd_IWR9b8/view?usp=drive_link\ (만료)
+* 💾  https://drive.google.com/file/d/1o17FUhQ51hxYJdJm4HDS_xnp-I2lKIUa/view?usp=sharing
 
 * 🎞  [https://youtu.be/HpAkOuOOECc?si=Qpxj_9eoz50Jh-GN](https://youtu.be/VmdaPsr5oD4?si=uUa1f4JXRKpsvAiq)
 
