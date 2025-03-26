@@ -31,6 +31,7 @@ void UJUMP_O::updateInput()
 
 void UJUMP_O::update()
 {
+	ctx->Move(ctx->GetMoveInputActionValue());
 	ctx->Look(ctx->GetLookInputActionValue());
 	updateInput();
 }

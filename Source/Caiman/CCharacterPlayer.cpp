@@ -408,8 +408,47 @@ void ACCharacterPlayer::StopMove()
 void ACCharacterPlayer::Look(const FInputActionValue& Value)
 {
 	FVector2D LookAxisVector = Value.Get<FVector2D>();
-	AddControllerYawInput(LookAxisVector.X);
-	AddControllerPitchInput(LookAxisVector.Y);
+
+
+
+	// 현재 컨트롤러의 회전 값을 가져옵니다.
+	FRotator CurrentRotation = Controller->GetControlRotation();
+	float CurrentPitch = CurrentRotation.Pitch;
+
+	// 피치 각도를 제한합니다.
+	float MinPitch = 10.0f; // 위쪽으로 40도 제한
+	float MaxPitch = 330.0f;  // 아래쪽으로 40도 제한
+
+	// 새로운 피치 각도를 계산합니다.
+	//float NewPitch = FMath::Clamp(FMath::UnwindDegrees(CurrentPitch + LookAxisVector.Y), MinPitch, MaxPitch);
+	//float NewPitch = FMath::Clamp(CurrentPitch + LookAxisVector.Y, MinPitch, MaxPitch);
+	float NewPitch = CurrentPitch + LookAxisVector.Y;
+
+	if (NewPitch > 10.0f && 330 > NewPitch)
+	{
+		float distance1 = FMath::Abs(10.0f - NewPitch);
+		float distance2 = FMath::Abs(330.0f - NewPitch);
+
+		if (distance1 > distance2)
+		{
+			NewPitch = 330.0f;
+		}
+		else
+		{
+			NewPitch = 10.0f;
+		}
+	}
+
+	CurrentRotation.Pitch = NewPitch;
+	//// 제한된 피치 각도를 적용합니다.
+
+	Controller->SetControlRotation(CurrentRotation);//전체 회전 변경
+	//UE_LOG(LogTemp, Warning, TEXT("LookAxisVector.Y : %f"), NewPitch);
+
+	////AddControllerPitchInput(LookAxisVector.Y);
+	//UE_LOG(LogTemp, Warning, TEXT("ControllRotation.Y : %f\n"), CurrentRotation.Pitch);
+	//AddControllerPitchInput(CurrentPitch); inputaction으로는 바뀌는 값을 더해주는식으로 하는것이기에 이렇게 하면 안된다.
+	AddControllerYawInput(LookAxisVector.X);	
 }
 
 void ACCharacterPlayer::Draw()
