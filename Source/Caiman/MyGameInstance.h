@@ -10,12 +10,12 @@
  * 
  */
 UCLASS()
-class OPENAIAPI_API UMyGameInstance : public UGameInstance
+class CAIMAN_API UMyGameInstance : public UGameInstance
 {
 public:
 	GENERATED_BODY()
 	UPROPERTY(EditAnywhere,BluePrintReadWrite)
-	bool midSave=false;
+	bool midSave;
 	virtual void Init() override;
 	
 };

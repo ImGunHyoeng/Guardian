@@ -6,4 +6,5 @@
 void UMyGameInstance::Init()
 {
 	Super::Init();	
+	midSave = false;
 }
