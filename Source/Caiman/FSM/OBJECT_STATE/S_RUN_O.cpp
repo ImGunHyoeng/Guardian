@@ -63,20 +63,31 @@ void US_RUN_O::update()
 
 void US_RUN_O::enter()
 {
+	if (!IsValid(ctx) || !IsValid(ctx->GetWorld()) || ctx->GetWorld()->bIsTearingDown)
+		return;
 	ctx->GetCharacterMovement()->MaxWalkSpeed = 1000;
 	ctx->SetUsingStamina(true);
+	//if (!IsValid(ctx)) return;
 	ctx->GetWorldTimerManager().SetTimer(runTimer, this,&US_RUN_O::RunTimerEnd,0.3, true);
 }
 void US_RUN_O::RunTimerEnd()
 {
+	if (!ctx || !IsValid(ctx) || !ctx->GetWorld() || ctx->GetWorld()->bIsTearingDown)
+		return;
+
+	if (!ctx->GetAttribute() || !ctx->GetHUD())
+		return;
+
 	ctx->GetAttribute()->UseStamina(ctx->GetAttribute()->GetRunCost());
 	ctx->GetHUD()->SetStaminaBarPercent(ctx->GetAttribute()->GetStaminaPercent());
 }
 void US_RUN_O::exit()
 {
+	ctx->GetWorldTimerManager().ClearTimer(runTimer);
 	ctx->SetUsingStamina(false);
-	ctx->GetWorldTimerManager().PauseTimer(runTimer);
+	//ctx->GetWorldTimerManager().PauseTimer(runTimer);
 	ctx->GetCharacterMovement()->MaxWalkSpeed = 1000 / 2.0f;
+	
 }
 
 void US_RUN_O::InitializeSubState()
@@ -85,4 +96,6 @@ void US_RUN_O::InitializeSubState()
 
 void US_RUN_O::Destroy()
 {
+	Super::Destroy();
+	ctx->GetWorldTimerManager().ClearTimer(runTimer);
 }

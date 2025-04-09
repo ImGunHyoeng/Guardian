@@ -327,6 +327,8 @@ void ACCharacterPlayer::BossHpUpdate(float percent)
 void ACCharacterPlayer::update()
 {
 	//curState->update(*this);
+	if (!IsValid(GetWorld()) || GetWorld()->bIsTearingDown)
+		return;
 	curState->UpdateStates();
 
 	//FVector inputVector = GetLastMovementInputVector();
