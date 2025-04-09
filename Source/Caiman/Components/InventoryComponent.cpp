@@ -154,7 +154,16 @@ void UInventoryComponent::BeginPlay()
 	allitem.Armors.SetNum(5);
 	allitem.Swords.SetNum(3);//Reserve(3);
 	allitem.Items.SetNum(24);
-	ShowInventory();
+
+	FString mapName = GetWorld()->GetMapName();
+	FString SmapName = FPackageName::GetShortName(mapName);
+	FString clearmap = "GuardianAI";
+
+
+	if (!mapName.Contains(clearmap))
+	{
+		ShowInventory();
+	}
 	GetWorld()->GetTimerManager().SetTimer(TraceTimerhandle, this, &UInventoryComponent::TraceItemToPickUp,0.5f, true,0.f);
 	//ItemWidget=Cast<UItemWidget>(CreateWidget(GetWorld(), ItemWidgetClass));
 	
