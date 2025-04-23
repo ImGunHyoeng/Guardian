@@ -590,6 +590,11 @@ void ACCharacterPlayer::SetRagdollPhysics()
 }
 
 
+UPlayerOverlay* ACCharacterPlayer::GetHUD()
+{
+	return PlayerOverlay;
+}
+
 bool ACCharacterPlayer::HasEnoughStamina(float Cost)
 {
 	return Attributes->GetStaminaPercent() > (Cost/Attributes->GetMaxStamina());
