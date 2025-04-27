@@ -73,7 +73,19 @@ void ACCharacterPlayer::BeginPlay()
 	Super::BeginPlay();
 	bIsDie = false;
 	//player키 입력
+	PlayerController = CastChecked<APlayerController>(GetController());
+
+	FString mapName = GetWorld()->GetMapName();
+	FString SmapName=FPackageName::GetShortName(mapName);
+	FString clearmap = "GuardianAI";
+
 	InitializePlayerOverlay();
+	
+	if (mapName.Contains(clearmap))
+	{
+		PlayerOverlay->SetVisibility(ESlateVisibility::Hidden);
+	}
+
 	Restart= CreateWidget<UMenuWidget>(GetWorld(), RestartClass);
 	Clear= CreateWidget<UMenuWidget>(GetWorld(), ClearClass);
 	//Clear->AddToViewport();
@@ -131,7 +143,7 @@ void ACCharacterPlayer::BeginPlay()
 
 void ACCharacterPlayer::InitializePlayerOverlay()
 {
-	PlayerController = CastChecked<APlayerController>(GetController());
+	
 	if (PlayerController)
 	{
 		APlayerHUD* PlayerHUD = Cast<APlayerHUD>(PlayerController->GetHUD());
@@ -315,6 +327,8 @@ void ACCharacterPlayer::BossHpUpdate(float percent)
 void ACCharacterPlayer::update()
 {
 	//curState->update(*this);
+	if (!IsValid(GetWorld()) || GetWorld()->bIsTearingDown)
+		return;
 	curState->UpdateStates();
 
 	//FVector inputVector = GetLastMovementInputVector();
@@ -603,6 +617,17 @@ void ACCharacterPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	// InputAction과 InputMappingContext를 연결
 	EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent);
+
+	FString mapName = GetWorld()->GetMapName();
+	FString SmapName = FPackageName::GetShortName(mapName);
+	FString clearmap = "GuardianAI";
+
+	InitializePlayerOverlay();
+
+	if (mapName.Contains(clearmap))
+	{
+		return;
+	}
 	EnhancedInputComponent->BindAction(InventoryAction, ETriggerEvent::Triggered, InventoryWidget, &UInventoryComponent::ShowInventory);
 	//EnhancedInputComponent->BindAction(InteractionAction, ETriggerEvent::Triggered, InventoryWidget, &UInventoryComponent::InteractionKeyDown);
 	//EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ACCharacterPlayer::Jump);
