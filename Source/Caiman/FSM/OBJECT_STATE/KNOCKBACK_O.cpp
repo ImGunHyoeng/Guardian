@@ -43,6 +43,7 @@ void UKNOCKBACK_O::enter()
 {
 	end = false;
 	can = false;
+	ctx->RollEvent(true);
 }
 
 void UKNOCKBACK_O::InitializeSubState()
@@ -53,6 +54,7 @@ void UKNOCKBACK_O::exit()
 {
 	end = false;
 	can = false;
+	ctx->RollEvent(false);
 }
 
 void UKNOCKBACK_O::Destroy()

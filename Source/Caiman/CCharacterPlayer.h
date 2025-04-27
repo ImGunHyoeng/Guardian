@@ -48,6 +48,9 @@ public:
 	UPROPERTY()
 	class ASojeongbang* Boss;//보스 가져오기
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void RollEvent(bool condition);
+
 	void BossHpUpdate(float percent);
 	UPROPERTY(VisibleAnywhere, BluePrintReadOnly, Category = Camera)
 	TObjectPtr<class USpringArmComponent>CameraBoom;//스프링암
@@ -145,7 +148,8 @@ public:
 
 	//속성
 	FORCEINLINE UAttributeComponent *GetAttribute() { return Attributes; }
-	FORCEINLINE UPlayerOverlay *GetHUD() { return PlayerOverlay; }
+	UFUNCTION(BlueprintCallable)
+	UPlayerOverlay* GetHUD();
 	FORCEINLINE void SetUsingStamina(bool input) { bIsUsingStamina = input; }
 	
 	bool HasEnoughStamina(float Cost);
